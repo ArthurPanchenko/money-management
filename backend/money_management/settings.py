@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # Local
     'money',
+
+    # 3rd party
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

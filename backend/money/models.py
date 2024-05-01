@@ -14,14 +14,17 @@ class Wallet(models.Model):
     left_date = models.DateField(default=current_date + timedelta(days=7))
 
     @property
-    def daily_available(self):
-
+    def left_days(self):
         left_days = self.left_date - current_date
+        return left_days.days
 
-        return round(self.left_money / left_days.days, 2)
+    @property
+    def daily_available(self):
+        return round(self.left_money / self.left_days, 2)
 
     def decrease_money(self, amount):
         if self.left_money < amount:
             self.left_money = 0
         self.save()
         
+
