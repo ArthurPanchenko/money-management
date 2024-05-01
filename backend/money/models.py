@@ -25,6 +25,17 @@ class Wallet(models.Model):
     def decrease_money(self, amount):
         if self.left_money < amount:
             self.left_money = 0
+        else:
+            self.left_money -= amount
         self.save()
         
 
+class Purchase(models.Model):
+    wallet = models.ForeignKey(
+        Wallet, 
+        on_delete=models.CASCADE, 
+        related_name='purchases'
+    )
+    title = models.CharField(max_length=255)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    purchase_date = models.DateTimeField(auto_now_add=True, blank=True)

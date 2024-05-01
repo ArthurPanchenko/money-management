@@ -1,13 +1,29 @@
 from rest_framework import serializers
 
-from .models import Wallet
+from .models import Wallet, Purchase
+
+
+class PurchaseSerializer(serializers.ModelSerializer):
+
+    wallet = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = Purchase
+        fields = (
+            'wallet',
+            'title',
+            'amount',
+        )
 
 
 class WalletSerializer(serializers.ModelSerializer):
 
-    # user = serializers.CharField(read_only=True)
-    # left_date = serializers.DateField(read_only=True)
-    # left_money = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
+    user = serializers.CharField(read_only=True)
+    purchases = PurchaseSerializer(
+        many=True,
+        read_only=True
+    )
+
 
     class Meta:
         model = Wallet
@@ -17,6 +33,7 @@ class WalletSerializer(serializers.ModelSerializer):
             'left_date',
             'left_days',
             'daily_available',
+            'purchases'
         )
 
 
