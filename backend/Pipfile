@@ -10,6 +10,8 @@ djangorestframework = "*"
 redis = "*"
 celery = "*"
 gevent = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
