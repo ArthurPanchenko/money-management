@@ -20,7 +20,11 @@ class Wallet(models.Model):
         return left_days.days
 
     def calculate_daily(self):
-        self.daily = round(self.left_money / self.left_days, 2)
+        left_days = self.left_days
+        if left_days > 0:
+            self.daily = round(self.left_money / self.left_days, 2)
+        else:
+            self.daily = 0
         self.save()
         return self
 

@@ -37,5 +37,7 @@ class WalletSerializer(serializers.ModelSerializer):
         )
 
     def update(self, instance, validated_data):
+        print(instance)
         instance = super().update(instance, validated_data)
+        print(instance)
         return instance.calculate_daily()
