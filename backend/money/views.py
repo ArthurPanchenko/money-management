@@ -6,10 +6,16 @@ from rest_framework.generics import (
     GenericAPIView
 )
 from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Wallet, Purchase
 from .serializers import WalletSerializer, PurchaseSerializer
+
+
+@api_view()
+def test_api(request):
+    return Response({'message':'work!'})
 
 
 class WalletView(RetrieveUpdateAPIView):

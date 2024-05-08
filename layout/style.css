@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+ul {
+    list-style: none;
+}
+
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #f5a623;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.wallet__daily-available {
+    margin-top: 10px;
+}
+
+.wallet-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.wallet-content { 
+    margin-top: 15px;
+}
+
+.wallet__spends {
+    width: 350px;
+    border: 10px inset #f5a623;
+    padding: 10px;
+}
+
+.wallet__form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet__form > label {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.wallet__form__input {
+    border: 3px solid #f5a623;
+    padding: 5px;
+}
+
+.wallet__form__button {
+    background-color: #f5a623;
+    outline: none;
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.wallet__spends__item:not(:last-of-type) {
+    margin-top: 5px;
+    border-bottom: 1px solid #f5a623;
+}
+
+
+
+.login-view {
+    background-color: #f5a623;
+}
+
+
+
+
+
+.auth {
+    position: fixed;
+    background-color: #f5a623;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.auth-container {
+    width: 50%;
+    max-width: 650px;
+    height: 50%;
+    max-height: 650px;
+    background-color: white;
+    margin: 13rem auto;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.auth__title {
+    text-align: center;
+}
+
+.auth__form {
+    margin-top: 50px;
+    position: relative;
+    height: calc(100% - 100px);
+}
+
+.login__form {
+    border: 1px solid red;
+    position: absolute;
+    height: 299px;
+
+}
+
+.registration__form {
+    position: absolute;
+    height: 299px;
+    left: 130%;
+    top: 0;
+    width: 100%;
+}
+
+.login__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__info:not(:first-of-type) {
+    margin-top: 15px;
+}
+
+.auth__button {
+    background-color: #f5a623;
+    outline: none;
+    font-size: 18px;
+    padding: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}

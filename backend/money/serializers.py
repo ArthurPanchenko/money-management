@@ -9,6 +9,8 @@ class PurchaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Purchase
+        ordering = ['purchase_date']
+        
         fields = (
             'title',
             'amount',
@@ -22,7 +24,7 @@ class WalletSerializer(serializers.ModelSerializer):
     daily = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
     purchases = PurchaseSerializer(
         many=True,
-        read_only=True
+        read_only=True,
     )
 
     class Meta:
@@ -37,7 +39,6 @@ class WalletSerializer(serializers.ModelSerializer):
         )
 
     def update(self, instance, validated_data):
-        print(instance)
         instance = super().update(instance, validated_data)
-        print(instance)
         return instance.calculate_daily()
+
