@@ -22,6 +22,7 @@ class WalletSerializer(serializers.ModelSerializer):
 
     user = serializers.CharField(read_only=True)
     daily = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
+    available_today = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
     purchases = PurchaseSerializer(
         many=True,
         read_only=True,
@@ -35,7 +36,8 @@ class WalletSerializer(serializers.ModelSerializer):
             'left_date',
             'left_days',
             'daily',
-            'purchases'
+            'purchases',
+            'available_today'
         )
 
     def update(self, instance, validated_data):

@@ -13,6 +13,7 @@ class Wallet(models.Model):
     left_money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     left_date = models.DateField(default=current_date + timedelta(days=7))
     daily = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    available_today = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     @property
     def left_days(self):
@@ -25,6 +26,7 @@ class Wallet(models.Model):
             self.daily = round(self.left_money / self.left_days, 2)
         else:
             self.daily = 0
+        self.available_today = self.daily
         self.save()
         return self
 
@@ -33,6 +35,7 @@ class Wallet(models.Model):
             self.left_money = 0
         else:
             self.left_money -= amount
+        self.available_today -= amount
         self.save()
         
 
