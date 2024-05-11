@@ -25,10 +25,10 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*4a0am-(v*dt-()8s+&3$nby)aj-sw8*8b=e#v=o&xrc7q8ch)'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -68,6 +68,8 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080',
     'http://127.0.0.1:8080',
+    'http://127.0.0.1:8080',
+    'http://172.29.0.4:8080'
 ]
 
 ROOT_URLCONF = 'money_management.urls'

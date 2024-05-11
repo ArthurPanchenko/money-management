@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16.3-alpine3.19
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=money_management_JD
+  backend:
+    depends_on:
+      - db
+    build: ./backend
+    ports:
+      - 8000:8000
+    environment:
+      - SECRET_KEY="django-insecure-*4a0am-(v*dt-()8s+&3$nby)aj-sw8*8b=e#v=o&xrc7q8ch)" 
+      - DJANGO_DEBUG=''
+      - DB_NAME=money_management_JD
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+      - DB_HOST=db
+      - DB_PORT=5432
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - CELERY_BROKER_URL=redis://localhost:6379/0
+      - CELERY_RESULT_BACKEND=redis://localhost:6379/0
+  frontend:
+    depends_on:
+      - backend
+    build: ./frontend
+    ports:
+      - 8080:8080
+    
+  

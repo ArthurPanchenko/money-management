@@ -11,7 +11,7 @@
                 <p class="nav__login">
                     
                     <a class="custom-link" v-if="auth" v-on:click="logout">Logout</a>
-                    <router-link v-else :to="{name: 'auth'}">Login</router-link>
+                    <router-link v-else :to="{name: 'auth'}">Выход</router-link>
 
 
                 </p>

@@ -4,7 +4,7 @@
             <h1 class="wallet__left-money">
                 У вас осталось {{ wallet.left_money }} до {{ wallet.left_date }}
             </h1>
-            <h3 class="wallet__daily-available">Доступно на сегодня: {{ wallet.daily }}</h3>
+            <h3 class="wallet__daily-available">Доступно на сегодня: {{ wallet.available_today }}</h3>
             <button @click="toggleFormBtn" id="toggleFormBtn" class="wallet__form__button">Обновить</button>
         </div>
         <form @submit.prevent="createPurchase" class="wallet__form" id="createForm">
